@@ -1,0 +1,56 @@
+{
+  "gameConfig": {
+    "map": {
+      "name": "GameMap1",
+      "width": 20,
+      "height": 15,
+      "path": [
+        {"x": 0, "y": 7},
+        {"x": 5, "y": 7},
+        {"x": 5, "y": 3},
+        {"x": 10, "y": 3},
+        {"x": 10, "y": 10},
+        {"x": 15, "y": 10},
+        {"x": 15, "y": 7},
+        {"x": 19, "y": 7}
+      ]
+    },
+    "enemies": [
+      {
+        "name": "Goblin",
+        "hp": 50,
+        "speed": 1.50,
+        "reward": 10
+      }
+    ],
+    "towers": [
+      {
+        "name": "Arrow",
+        "range": 3,
+        "damage": 15,
+        "fireRate": 2.00,
+        "cost": 50,
+        "dps": 30.00
+      }
+    ],
+    "waves": [
+      {
+        "name": "Wave1",
+        "spawns": [
+          {
+            "enemyType": "Goblin",
+            "count": 10,
+            "start": 0,
+            "interval": 2
+          }
+        ]
+      }    ],
+    "initialPlacements": [
+      {
+        "towerType": "Arrow",
+        "x": 3,
+        "y": 5
+      }
+    ]
+  }
+}
