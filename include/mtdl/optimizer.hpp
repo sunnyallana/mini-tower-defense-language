@@ -1,7 +1,7 @@
-#ifndef OPTIMIZER_H
-#define OPTIMIZER_H
+#ifndef OPTIMIZER_HPP
+#define OPTIMIZER_HPP
 
-#include "ir.h"
+#include "ir.hpp"
 #include <vector>
 #include <set>
 #include <map>

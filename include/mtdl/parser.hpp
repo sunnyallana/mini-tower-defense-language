@@ -1,8 +1,8 @@
-#ifndef PARSER_H
-#define PARSER_H
+#ifndef PARSER_HPP
+#define PARSER_HPP
 
-#include "lexer.h"
-#include "ast.h"
+#include "lexer.hpp"
+#include "ast.hpp"
 
 // Syntax Analyzer - builds AST from token stream
 class Parser {

@@ -2,12 +2,12 @@
 #include <fstream>
 #include <sstream>
 #include <memory>
-#include "lexer.h"
-#include "parser.h"
-#include "semantic.h"
-#include "ir.h"
-#include "optimizer.h"
-#include "codegen.h"
+#include "mtdl/lexer.hpp"
+#include "mtdl/parser.hpp"
+#include "mtdl/semantic.hpp"
+#include "mtdl/ir.hpp"
+#include "mtdl/optimizer.hpp"
+#include "mtdl/codegen.hpp"
 
 // Utility function to read entire file into string
 std::string readFile(const std::string& filename) {
@@ -97,7 +97,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    std::cout << "=== TDLang Compiler ===\n";
+    std::cout << "=== MTDL Compiler ===\n";
     std::cout << "Input: " << inputFile << "\n\n";
 
     // Phase 1: Lexical Analysis

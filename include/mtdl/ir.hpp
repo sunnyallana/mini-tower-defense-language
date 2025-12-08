@@ -1,7 +1,7 @@
-#ifndef IR_H
-#define IR_H
+#ifndef IR_HPP
+#define IR_HPP
 
-#include "ast.h"
+#include "ast.hpp"
 #include <vector>
 #include <string>
 #include <memory>

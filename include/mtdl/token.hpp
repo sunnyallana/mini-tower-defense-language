@@ -1,9 +1,9 @@
-#ifndef TOKEN_H
-#define TOKEN_H
+#ifndef TOKEN_HPP
+#define TOKEN_HPP
 
 #include <string>
 
-// All possible token types in the TDLang language
+// All possible token types in the MTDL language
 enum class TokenType {
     // Keywords
     MAP, ENEMY, TOWER, WAVE, SPAWN, PLACE, AT,

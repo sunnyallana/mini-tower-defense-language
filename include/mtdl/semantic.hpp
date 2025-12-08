@@ -1,7 +1,7 @@
-#ifndef SEMANTIC_H
-#define SEMANTIC_H
+#ifndef SEMANTIC_HPP
+#define SEMANTIC_HPP
 
-#include "ast.h"
+#include "ast.hpp"
 #include <unordered_map>
 #include <string>
 

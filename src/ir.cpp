@@ -1,4 +1,4 @@
-#include "ir.h"
+#include "mtdl/ir.hpp"
 #include <sstream>
 
 std::vector<IrInstruction> IrGenerator::generate(std::shared_ptr<Program> program) {
