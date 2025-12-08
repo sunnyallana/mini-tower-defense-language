@@ -1,11 +1,11 @@
-#ifndef LEXER_H
-#define LEXER_H
+#ifndef LEXER_HPP
+#define LEXER_HPP
 
 #include <string>
 #include <vector>
 #include <cctype>
 #include <unordered_map>
-#include "token.h"
+#include "token.hpp"
 
 // Lexical Analyzer - converts source code into tokens
 class Lexer {

@@ -1,4 +1,4 @@
-#include "lexer.h"
+#include "mtdl/lexer.hpp"
 #include <iostream>
 #include <cctype>
 

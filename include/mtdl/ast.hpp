@@ -1,5 +1,5 @@
-#ifndef AST_H
-#define AST_H
+#ifndef AST_HPP
+#define AST_HPP
 
 #include <string>
 #include <vector>

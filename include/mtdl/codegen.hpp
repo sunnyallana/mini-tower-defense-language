@@ -1,7 +1,7 @@
-#ifndef CODEGEN_H
-#define CODEGEN_H
+#ifndef CODEGEN_HPP
+#define CODEGEN_HPP
 
-#include "ir.h"
+#include "ir.hpp"
 #include <string>
 #include <vector>
 
