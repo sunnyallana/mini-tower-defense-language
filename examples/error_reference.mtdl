@@ -1,0 +1,3 @@
+wave BadWave {
+    spawn(UndefinedEnemy, count=5, start=0, interval=2);
+}

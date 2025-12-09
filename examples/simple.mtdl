@@ -1,0 +1,11 @@
+map SimpleMap {
+    size = (5, 5);
+    path = [(0,2), (4,2)];
+}
+
+enemy SimpleEnemy {
+    hp = 25;
+    speed = 1.0;
+}
+
+place SimpleEnemy at (1,1);

@@ -1,0 +1,4 @@
+enemy BadEnemy {
+    hp = -50;
+    speed = 1.5;
+}
