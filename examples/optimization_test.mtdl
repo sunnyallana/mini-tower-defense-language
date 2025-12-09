@@ -1,0 +1,38 @@
+map TestMap {
+    size = (10, 10);
+    path = [(0,5), (5,5)];
+}
+
+enemy UsedEnemy {
+    hp = 50;
+    speed = 1.5;
+    reward = 10;
+}
+
+enemy UnusedEnemy {
+    hp = 100;
+    speed = 1.0;
+    reward = 0;
+}
+
+tower Tower1 {
+    range = 3;
+    damage = 15;
+    fire_rate = 2.0;
+    cost = 50;
+}
+
+tower Tower2 {
+    range = 5;
+    damage = 25;
+    fire_rate = 1.0;
+    cost = 100;
+}
+
+wave TestWave {
+    spawn(UsedEnemy, count=5, start=0, interval=2);
+    spawn(UsedEnemy, count=3, start=0, interval=2);
+}
+
+
+place Tower1 at (2, 2);

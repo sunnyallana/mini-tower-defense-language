@@ -1,0 +1,23 @@
+map CastleDefense {
+    size = (30, 20);
+    path = [(0,10), (10,10), (10,5), (20,5)];
+}
+
+enemy Goblin {
+    hp = 50;
+    speed = 1.5;
+    reward = 10;
+}
+
+tower Archer {
+    range = 4;
+    damage = 20;
+    fire_rate = 1.5;
+    cost = 75;
+}
+
+wave Wave1 {
+    spawn(Goblin, count=15, start=0, interval=1);
+}
+
+place Archer at (3,8);
