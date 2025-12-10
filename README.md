@@ -5,7 +5,11 @@
 
 A complete, multi-stage compiler for the **Mini Tower Defense Language (MTDL)**, a domain-specific language for defining tower defense game configurations. The compiler implements all six phases of traditional compiler construction with game-specific optimizations.
 
-## **What is MTDL?**
+## Purpose
+
+This project serves as a comprehensive educational resource and practical tool that bridges compiler theory with game development. It demonstrates the complete compiler construction pipeline—from lexical analysis through code generation—while solving a real-world problem: creating a clean, designer-friendly language for tower defense games. By implementing game-specific optimizations like constant folding for DPS calculations and dead code elimination, the compiler produces efficient JSON configurations ready for immediate use in game engines, making it valuable for both learning compiler design principles and practical game development workflows.
+
+## What is MTDL?
 
 MTDL allows game designers to define complete tower defense game scenarios in a clean, readable format:
 
@@ -35,9 +39,9 @@ wave Wave1 {
 place Archer at (3,8);
 ```
 
-## **Quick Start**
+## Quick Start
 
-### **Clone and Build**
+### Clone and Build
 ```bash
 git clone https://github.com/sunnyallana/mini-tower-defense-language.git
 cd mini-tower-defense-language
@@ -49,12 +53,12 @@ g++ -std=c++17 -o mtdl src/*.cpp -Iinclude
 ./mtdl examples/basic.mtdl -o game_config.json
 ```
 
-### **Check Output**
+### Check Output
 ```bash
 cat game_config.json
 ```
 
-## **Project Structure**
+## Project Structure
 
 ```
 mini-tower-defense-language/
@@ -82,9 +86,9 @@ mini-tower-defense-language/
 └── README.md              # This file
 ```
 
-## **Compiler Features**
+## Compiler Features
 
-### **Complete Compiler Pipeline**
+### Complete Compiler Pipeline
 1. **Lexical Analysis** - Tokenizes source code
 2. **Syntax Analysis** - Builds AST with recursive descent parsing
 3. **Semantic Analysis** - Validates program meaning and consistency
@@ -92,15 +96,15 @@ mini-tower-defense-language/
 5. **Optimization** - Applies game-specific optimizations
 6. **Code Generation** - Produces JSON configuration for game engines
 
-### **Game-Specific Optimizations**
+### Game-Specific Optimizations
 - **Constant Folding**: Pre-calculates tower DPS (Damage × Fire Rate)
 - **Dead Code Elimination**: Removes unused enemy/tower definitions
 - **Duplicate Removal**: Eliminates redundant definitions
 - **Spawn Merging**: Combines identical spawns in waves
 
-## **Language Specification**
+## Language Specification
 
-### **Map Definition**
+### Map Definition
 ```mtdl
 map MapName {
     size = (width, height);                    // Map dimensions
@@ -108,7 +112,7 @@ map MapName {
 }
 ```
 
-### **Enemy Definition**
+### Enemy Definition
 ```mtdl
 enemy EnemyName {
     hp = value;      // Health points (positive integer)
@@ -117,7 +121,7 @@ enemy EnemyName {
 }
 ```
 
-### **Tower Definition**
+### Tower Definition
 ```mtdl
 tower TowerName {
     range = value;      // Attack range (positive integer)
@@ -127,7 +131,7 @@ tower TowerName {
 }
 ```
 
-### **Wave Definition**
+### Wave Definition
 ```mtdl
 wave WaveName {
     spawn(EnemyType, count=value, start=value, interval=value);
@@ -135,26 +139,26 @@ wave WaveName {
 }
 ```
 
-### **Tower Placement**
+### Tower Placement
 ```mtdl
 place TowerType at (x, y);
 ```
 
-## 🛠️ **Building from Source**
+## Building from Source
 
 ```bash
 g++ -std=c++17 -o mtdl src/*.cpp -Iinclude
 ```
 
-## **Using the Compiler**
+## Using the Compiler
 
-### **Basic Usage**
+### Basic Usage
 ```bash
 ./mtdl input.mtdl                    # Creates output.json
 ./mtdl input.mtdl -o config.json     # Custom output file
 ```
 
-### **Command Line Options**
+### Command Line Options
 ```bash
 -o <file>        Output file (default: output.json)
 -ir              Show intermediate representation
@@ -163,7 +167,7 @@ g++ -std=c++17 -o mtdl src/*.cpp -Iinclude
 -h, --help       Show help message
 ```
 
-### **Examples**
+### Examples
 ```bash
 # Show IR during compilation
 ./mtdl examples/castle_defense.mtdl -ir
@@ -176,9 +180,9 @@ g++ -std=c++17 -o mtdl src/*.cpp -Iinclude
 ./mtdl examples/basic.mtdl -no-opt -o non_optimized.json
 ```
 
-## **Testing**
+## Testing
 
-### **Run Examples**
+### Run Examples
 ```bash
 # Test basic example
 ./mtdl examples/basic.mtdl -o test_output.json
@@ -187,7 +191,7 @@ g++ -std=c++17 -o mtdl src/*.cpp -Iinclude
 ./mtdl examples/castle_defense.mtdl -ir
 ```
 
-### **Verify Optimizations**
+### Verify Optimizations
 ```bash
 # Check if DPS is pre-calculated (optimization working)
 ./mtdl examples/basic.mtdl -o opt.json
@@ -198,9 +202,9 @@ grep "dps" opt.json  # Should show "dps": 30.00
 grep "dps" noopt.json  # Should show nothing
 ```
 
-## **Sample Output**
+## Sample Output
 
-### **JSON Configuration**
+### JSON Configuration
 ```json
 {
   "gameConfig": {
@@ -230,7 +234,7 @@ grep "dps" noopt.json  # Should show nothing
         "damage": 20,
         "fireRate": 1.50,
         "cost": 75,
-        "dps": 30.00  // ← Optimized: pre-calculated!
+        "dps": 30.00
       }
     ],
     "waves": [
@@ -257,7 +261,7 @@ grep "dps" noopt.json  # Should show nothing
 }
 ```
 
-### **Human-Readable Output**
+### Human-Readable Output
 ```
 === MTDL Compiled Output ===
 
@@ -269,84 +273,84 @@ DEFINE_WAVE Wave1
 PLACE_TOWER Archer X=3 Y=8
 ```
 
-## **Compiler Architecture**
+## Compiler Architecture
 
-### **Lexical Analysis (`lexer.hpp/cpp`)**
+### Lexical Analysis (lexer.hpp/cpp)
 - Converts source to tokens (keywords, identifiers, numbers, symbols)
 - Handles comments and whitespace
 - Tracks line numbers for error reporting
 
-### **Syntax Analysis (`parser.hpp/cpp`)**
+### Syntax Analysis (parser.hpp/cpp)
 - Recursive descent parser
 - Builds Abstract Syntax Tree (AST)
 - Validates grammar structure
 
-### **Semantic Analysis (`semantic.hpp/cpp`)**
+### Semantic Analysis (semantic.hpp/cpp)
 - Symbol table management
 - Type checking and validation
 - Reference validation
 - Bounds checking
 
-### **Intermediate Representation (`ir.hpp/cpp`)**
+### Intermediate Representation (ir.hpp/cpp)
 - Platform-independent IR instructions
 - Metadata storage for game attributes
 - Hierarchical wave/spawn relationships
 
-### **Optimization (`optimizer.hpp/cpp`)**
+### Optimization (optimizer.hpp/cpp)
 - **Constant Folding**: Pre-calculates DPS and durations
 - **Dead Code Elimination**: Removes unused definitions
 - **Duplicate Removal**: Eliminates redundant data
 - **Spawn Merging**: Combines identical spawns
 
-### **Code Generation (`codegen.hpp/cpp`)**
+### Code Generation (codegen.hpp/cpp)
 - JSON output for game engines
 - Human-readable text format
 - Proper formatting and escaping
 
-## **Debugging**
+## Debugging
 
-### **Show Compilation Phases**
+### Show Compilation Phases
 ```bash
 ./mtdl examples/basic.mtdl  # Shows progress through all 6 phases
 ```
 
-### **View Intermediate Representation**
+### View Intermediate Representation
 ```bash
 ./mtdl examples/basic.mtdl -ir  # Shows IR instructions
 ```
 
-### **Disable Optimizations**
+### Disable Optimizations
 ```bash
 ./mtdl examples/basic.mtdl -no-opt  # For debugging optimization issues
 ```
 
-## **Performance Benefits**
+## Performance Benefits
 
 1. **30% smaller output** with dead code elimination
 2. **Pre-calculated DPS** eliminates runtime math
 3. **Merged spawns** reduce wave processing overhead
 4. **Clean JSON** ready for immediate game engine use
 
-## **Future Roadmap**
+## Future Roadmap
 
-### **Language Enhancements**
-- [ ] Arithmetic expressions in attributes
-- [ ] Conditional spawns (if-then logic)
-- [ ] Tower upgrade chains
-- [ ] Game events (onWaveStart, onEnemyDeath)
+### Language Enhancements
+- Arithmetic expressions in attributes
+- Conditional spawns (if-then logic)
+- Tower upgrade chains
+- Game events (onWaveStart, onEnemyDeath)
 
-### **Compiler Features**
-- [ ] LLVM backend for native code
-- [ ] Interactive debugger
-- [ ] Visual AST viewer
-- [ ] Language server support
+### Compiler Features
+- LLVM backend for native code
+- Interactive debugger
+- Visual AST viewer
+- Language server support
 
-### **Optimizations**
-- [ ] Profile-guided optimization
-- [ ] Parallel wave simulation
-- [ ] Cache-aware code generation
+### Optimizations
+- Profile-guided optimization
+- Parallel wave simulation
+- Cache-aware code generation
 
-## **Contributing**
+## Contributing
 
 Contributions are welcome! Here's how:
 
@@ -361,13 +365,14 @@ Please ensure:
 - Add tests for new features
 - Update documentation as needed
 
-## **License**
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## **Acknowledgments**
+## Acknowledgments
 
 - Inspired by compiler construction principles
 - Designed for practical game development use
 - Built as an educational project in compiler design
+
 ---
